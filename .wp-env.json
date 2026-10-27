@@ -7,7 +7,7 @@
     "https://downloads.wordpress.org/theme/twentytwentyfive.latest-stable.zip"
   ],
   "plugins": [
-    "getwiregum/wiregum-wordpress#main"
+    "getwiregum/wiregum-wordpress#v1.0.0"
   ],
   "mappings": {
     "starter-scripts": "./scripts",

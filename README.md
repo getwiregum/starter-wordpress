@@ -24,7 +24,7 @@ Theme and plugin are maintained in separate repositories. **If you only want to 
 
 ## Quick start with Docker
 
-Requirements: Docker running, Node.js 24.18+ and npm 11.16+. WordPress, the parent theme and the separate WireGum for WordPress plugin are downloaded by the official `@wordpress/env` development tool; none is vendored here. The default plugin source is `getwiregum/wiregum-wordpress#main`. This follows the plugin’s development branch; switch that reference to a release tag or commit when freezing a project. Both repositories must be published for the default remote setup. Before publication, use the sibling-folder setup below.
+Requirements: Docker running, Node.js 24.18+ and npm 11.16+. WordPress, the parent theme and the separate WireGum for WordPress plugin are downloaded by the official `@wordpress/env` development tool; none is vendored here. The default plugin source is pinned to `getwiregum/wiregum-wordpress#v1.0.0` for reproducible setup. To work on the plugin locally, use the sibling-folder setup below.
 
 ```sh
 npm ci
@@ -42,7 +42,7 @@ Requirements: WordPress 6.7+, PHP 8.2+, a WordPress-supported database, WP-CLI f
 
 1. Install a normal WordPress site using your preferred local host or hosting provider.
 2. Install the latest stable Twenty Twenty-Five parent theme.
-3. Copy `themes/wiregum` from this repository to `wp-content/themes/wiregum`. Install the separate [WireGum for WordPress plugin](https://github.com/getwiregum/wiregum-wordpress) from its release ZIP, or copy that repository root to `wp-content/plugins/wiregum-wordpress`. The main plugin PHP file lives at the root of its own repository.
+3. Copy `themes/wiregum` from this repository to `wp-content/themes/wiregum`. Install the separate [WireGum for WordPress plugin](https://github.com/getwiregum/wiregum-wordpress) from its [release ZIP](https://github.com/getwiregum/wiregum-wordpress/releases/tag/v1.0.0), or copy that repository root to `wp-content/plugins/wiregum-wordpress`. The main plugin PHP file lives at the root of its own repository.
 4. Activate the WireGum for WordPress plugin and WireGum Starter theme.
 5. Optionally import the example content from the WordPress installation directory:
 
@@ -116,6 +116,12 @@ content/products/               Bundled example images
 .wp-env.json                    WordPress environment + remote plugin dependency
 .wp-env.override.example.json   Example for a sibling local plugin checkout
 ```
+
+## Releases
+
+Download a versioned snapshot from the [starter releases](https://github.com/getwiregum/starter-wordpress/releases), or clone this repository. The source archive contains the child theme, example content and development tooling; it is not a ZIP that can be uploaded directly through WordPress’s theme installer. For an existing WordPress installation, follow the setup above and copy only `themes/wiregum` into the themes directory.
+
+The plugin is released separately, with an installable `wiregum-wordpress.zip` attached to its [GitHub releases](https://github.com/getwiregum/wiregum-wordpress/releases). Starter and plugin versions are independent; the starter’s `.wp-env.json` records the plugin version used by its default development environment.
 
 ## Deployment
 
