@@ -10,21 +10,21 @@ Integration guide: [wiregum.com/docs/wordpress](https://wiregum.com/docs/wordpre
 
 **WireGum itself does not require a WordPress plugin.** You can keep your existing theme and integrate the storefront widget directly: load its script and public configuration, then add product and cart markup with `data-wiregum-*` attributes. The [manual WordPress guide](https://wiregum.com/docs/wordpress) describes that approach.
 
-The separate [WireGum Storefront plugin](https://github.com/getwiregum/wiregum-storefront) is a convenience layer: it provides the editorial Products section, connection settings, ready-made blocks and cart markup. **This starter’s catalog, product routes and commerce blocks depend on that plugin.** Removing it is not a way to keep the same starter storefront running; a manual integration supplies its own content structure and markup.
+The separate [WireGum for WordPress plugin](https://github.com/getwiregum/wiregum-wordpress) is a convenience layer: it provides the editorial Products section, connection settings, ready-made blocks and cart markup. **This starter’s catalog, product routes and commerce blocks depend on that plugin.** Removing it is not a way to keep the same starter storefront running; a manual integration supplies its own content structure and markup.
 
-Theme and plugin are maintained in separate repositories. **If you only want to add WireGum to your existing theme, install [getwiregum/wiregum-storefront](https://github.com/getwiregum/wiregum-storefront); you do not need this starter.** This repository contains WordPressGum, example content and development tooling. It does not vendor the plugin source.
+Theme and plugin are maintained in separate repositories. **If you only want to add WireGum to your existing theme, install [getwiregum/wiregum-wordpress](https://github.com/getwiregum/wiregum-wordpress); you do not need this starter.** This repository contains WordPressGum, example content and development tooling. It does not vendor the plugin source.
 
 ## Included
 
 - A light block child theme: header, footer, home, shop archive and product template. All other templates and styles come from Twenty Twenty-Five.
-- A development environment that installs the separate [WireGum Storefront plugin](https://github.com/getwiregum/wiregum-storefront), providing editorial products, public references, fallback prices, settings and four native commerce blocks.
+- A development environment that installs the separate [WireGum for WordPress plugin](https://github.com/getwiregum/wiregum-wordpress), providing editorial products, public references, fallback prices, settings and four native commerce blocks.
 - A responsive catalog and a native dialog cart with keyboard focus handling, Escape, background isolation and return focus.
 - Four optional example products with bundled images, an editable block home page and a thank-you page. Importing is explicit and repeatable; it preserves existing edits and refuses unrelated slug collisions.
 - Safe initial state: purchasing is disabled until connected. Images, descriptions and fallback prices remain available if JavaScript or the storefront service fails.
 
 ## Quick start with Docker
 
-Requirements: Docker running, Node.js 24.18+ and npm 11.16+. WordPress, the parent theme and the separate WireGum Storefront plugin are downloaded by the official `@wordpress/env` development tool; none is vendored here. The default plugin source is `getwiregum/wiregum-storefront#main`. This follows the plugin’s development branch; switch that reference to a release tag or commit when freezing a project. Both repositories must be published for the default remote setup. Before publication, use the sibling-folder setup below.
+Requirements: Docker running, Node.js 24.18+ and npm 11.16+. WordPress, the parent theme and the separate WireGum for WordPress plugin are downloaded by the official `@wordpress/env` development tool; none is vendored here. The default plugin source is `getwiregum/wiregum-wordpress#main`. This follows the plugin’s development branch; switch that reference to a release tag or commit when freezing a project. Both repositories must be published for the default remote setup. Before publication, use the sibling-folder setup below.
 
 ```sh
 npm ci
@@ -42,8 +42,8 @@ Requirements: WordPress 6.7+, PHP 8.2+, a WordPress-supported database, WP-CLI f
 
 1. Install a normal WordPress site using your preferred local host or hosting provider.
 2. Install the latest stable Twenty Twenty-Five parent theme.
-3. Copy `themes/wiregum` from this repository to `wp-content/themes/wiregum`. Install the separate [WireGum Storefront plugin](https://github.com/getwiregum/wiregum-storefront) from its release ZIP, or copy that repository root to `wp-content/plugins/wiregum-storefront`. The main plugin PHP file lives at the root of its own repository.
-4. Activate the WireGum Storefront plugin and WireGum Starter theme.
+3. Copy `themes/wiregum` from this repository to `wp-content/themes/wiregum`. Install the separate [WireGum for WordPress plugin](https://github.com/getwiregum/wiregum-wordpress) from its release ZIP, or copy that repository root to `wp-content/plugins/wiregum-wordpress`. The main plugin PHP file lives at the root of its own repository.
+4. Activate the WireGum for WordPress plugin and WireGum Starter theme.
 5. Optionally import the example content from the WordPress installation directory:
 
 ```sh
@@ -61,7 +61,7 @@ Keep the two repositories side by side:
 ```text
 Sites/
 ├── starter-wordpress/
-└── wiregum-storefront/          Main plugin PHP file, assets and blocks at its root
+└── wiregum-wordpress/          Main plugin PHP file, assets and blocks at its root
 ```
 
 From `starter-wordpress`, opt into the local plugin source:
@@ -73,9 +73,9 @@ npm start
 npm run seed
 ```
 
-The override is Git-ignored and replaces the remote plugin entry with `../wiregum-storefront`; `wp-env` mounts that checkout directly into WordPress. There is no second plugin source tree in the starter. If you already have a custom override, merge its `plugins` field instead of overwriting the file. After switching sources in an existing environment, run `npm start -- --update`.
+The override is Git-ignored and replaces the remote plugin entry with `../wiregum-wordpress`; `wp-env` mounts that checkout directly into WordPress. There is no second plugin source tree in the starter. If you already have a custom override, merge its `plugins` field instead of overwriting the file. After switching sources in an existing environment, run `npm start -- --update`.
 
-For Herd or another existing installation, install a ZIP built in the plugin repository (`php scripts/build.php`) or copy its root to `wp-content/plugins/wiregum-storefront`. A symlink to that checkout is also useful for local development. Do not activate a second copy under another folder name. Keep the canonical plugin folder and main file name when updating, so the existing activation, products and workspace settings continue to work.
+For Herd or another existing installation, install a ZIP built in the plugin repository (`php scripts/build.php`) or copy its root to `wp-content/plugins/wiregum-wordpress`. A symlink to that checkout is also useful for local development. Do not activate a second copy under another folder name. Keep the canonical plugin folder and main file name when updating, so the existing activation, products and workspace settings continue to work.
 
 ## Connect WireGum
 

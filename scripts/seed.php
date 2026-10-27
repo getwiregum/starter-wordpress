@@ -1,7 +1,7 @@
 <?php
 /** Explicit, repeatable starter content import: wp eval-file /absolute/path/scripts/seed.php */
 if (!defined('WP_CLI') || !WP_CLI) { exit("Run this file with WP-CLI.\n"); }
-if (!post_type_exists('wg_product')) { WP_CLI::error('Activate wiregum-storefront before importing.'); }
+if (!post_type_exists('wg_product')) { WP_CLI::error('Activate wiregum-wordpress before importing.'); }
 if (!wp_get_theme('twentytwentyfive')->exists()) { WP_CLI::error('Install Twenty Twenty-Five first.'); }
 $source = is_dir(dirname(__DIR__) . '/content/products') ? dirname(__DIR__) . '/content/products' : ABSPATH . 'starter-content/products';
 $examples = array(
