@@ -1,0 +1,20 @@
+{
+  "core": null,
+  "phpVersion": "8.2",
+  "port": 8888,
+  "themes": [
+    "./themes/wiregum",
+    "https://downloads.wordpress.org/theme/twentytwentyfive.latest-stable.zip"
+  ],
+  "plugins": [
+    "getwiregum/wiregum-storefront#main"
+  ],
+  "mappings": {
+    "starter-scripts": "./scripts",
+    "starter-content": "./content"
+  },
+  "config": {
+    "WP_DEBUG": true,
+    "WP_ENVIRONMENT_TYPE": "local"
+  }
+}

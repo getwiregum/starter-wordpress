@@ -1,0 +1,21 @@
+{
+  "name": "wiregum-starter-wordpress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "wp-env start",
+    "stop": "wp-env stop",
+    "wp": "wp-env run cli wp",
+    "seed": "wp-env run cli wp eval-file /var/www/html/starter-scripts/seed.php"
+  },
+  "devDependencies": {
+    "@wordpress/env": "12.0.0"
+  },
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
+  },
+  "overrides": {
+    "qs": "^6.16.0"
+  }
+}

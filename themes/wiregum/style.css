@@ -1,0 +1,65 @@
+/*
+Theme Name: WireGum Starter
+Description: A light storefront layer for Twenty Twenty-Five, powered by WireGum.
+Template: twentytwentyfive
+Version: 1.0.0
+Requires at least: 6.7
+Requires PHP: 8.2
+Author: WireGum
+Author URI: https://wiregum.com
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wiregum-starter
+*/
+
+/* Manrope and the palette stay with Twenty Twenty-Five; Mona Sans is logo-only. */
+@font-face {
+  font-family: "Mona Sans";
+  font-style: normal;
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url("assets/fonts/MonaSansVF.woff2") format("woff2");
+}
+.wg-header { border-bottom: 1px solid var(--wp--preset--color--accent-6, #ddd); }
+.wg-header .wg-header-bar { gap: 1.5rem 2rem; }
+.wg-header .wg-wordmark { margin: 0; font-family: "Mona Sans", sans-serif; font-size: 1.5rem; font-weight: 760; font-stretch: 84%; line-height: 1; letter-spacing: -.045em; text-transform: uppercase; }
+.wg-wordmark a { display: inline-flex; align-items: baseline; white-space: nowrap; text-decoration: none; }
+.wg-wordmark .gummy-letter { display: inline-block; font-stretch: var(--gummy-stretch, 84%); font-weight: var(--gummy-weight, 760); transition: font-stretch 180ms ease, font-weight 180ms ease; }
+.wg-header .wg-header-nav { gap: 2rem; font-size: var(--wp--preset--font-size--small); font-weight: 500; line-height: 1.5; }
+.wg-header-nav .wp-block-navigation, .wg-header-nav .wg-shop-link, .wg-header-nav .wg-cart-link { font-family: inherit; font-size: inherit; font-weight: inherit; line-height: inherit; }
+.wg-header-nav a, .wg-header-nav .wg-cart-link { color: inherit; text-decoration: none; text-underline-offset: .25em; }
+.wg-header-nav a[aria-current="page"] { text-decoration: underline; }
+.wg-header-nav a:hover, .wg-header-nav .wg-cart-link:hover { text-decoration: none; }
+.wg-header-nav [data-wiregum-cart-count] { font-variant-numeric: tabular-nums; }
+.wg-wordmark a:focus-visible, .wg-header-nav :focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.wg-home-intro h1 { margin: 0; font-size: clamp(2.5rem, 4.8vw, 4.5rem); font-weight: 400; line-height: 1.06; letter-spacing: -.045em; }
+.wg-home-intro .wg-home-lead { max-width: 36ch; margin-block: 0; font-size: var(--wp--preset--font-size--medium); line-height: 1.65; }
+.wg-shop-intro { margin-bottom: var(--wp--preset--spacing--70, 5rem); }
+.wg-shop-intro p { max-width: 40ch; margin: 0; }
+.wg-product-card h2, .wg-section-title, .wg-shop-intro p { font-family: inherit; font-size: var(--wp--preset--font-size--large); font-weight: 500; line-height: 1.2; letter-spacing: -.025em; }
+.wg-product-card > p { max-width: 40ch; font-size: var(--wp--preset--font-size--medium); line-height: 1.55; }
+.wg-product-card .wg-price { font-size: var(--wp--preset--font-size--medium); font-variant-numeric: tabular-nums; }
+@media (max-width: 781px) {
+  .wg-home-intro { gap: 2rem; }
+  .wg-home-intro .wg-home-lead { max-width: none; }
+}
+@media (max-width: 480px) {
+  .wg-header .wg-header-bar { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .wg-header .wg-header-nav { gap: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wg-wordmark .gummy-letter { transition: none; }
+}
+
+/* One shared scale: 14px supporting text, 18px body, 24px section and product titles. */
+.wg-notice, .wg-cart [data-wiregum-cart-item-price], .wg-cart [data-wg-cart-close], .wg-cart [data-wiregum-cart-remove] { font-size: var(--wp--preset--font-size--small); }
+.wg-cart { font-size: var(--wp--preset--font-size--medium); line-height: 1.55; }
+.wg-home-intro .wg-home-lead { line-height: 1.55; }
+@media (min-width: 782px) {
+  .entry-content .wg-home-intro { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); align-items: start; column-gap: clamp(2rem, 5vw, 5rem); }
+}
+@media (min-width: 782px) and (max-width: 1199px) {
+  .entry-content .wg-home-intro { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 2rem; }
+  .wg-home-intro h1 { font-size: clamp(2.5rem, 4.4vw, 3.25rem); }
+}

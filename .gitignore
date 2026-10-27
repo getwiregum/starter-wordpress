@@ -1,0 +1,5 @@
+node_modules/
+.wp-env.override.json
+.env
+*.zip
+.DS_Store
